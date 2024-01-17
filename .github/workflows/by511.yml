@@ -47,7 +47,7 @@ jobs:
           sudo ln -sf /usr/bin/python2 /usr/bin/python
           cd $GITHUB_WORKSPACE/twrp
           source build/envsetup.sh
-          lunch omni_octopus-ibt-eng
+          lunch omni_octopus_ibt-eng
           mka -j$(nproc --all) recoveryimage
       - name: Package image
         run: |
