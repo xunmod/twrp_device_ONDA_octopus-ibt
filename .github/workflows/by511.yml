@@ -30,7 +30,7 @@ jobs:
           git config --global user.email "116288337+xunmod@users.noreply.github.com"
           git config --global user.name "xunmod@bot"
           sudo rm -f /usr/bin/python
-          sudo apt install -yq python2
+          sudo apt install -yq python-minimal
           sudo ln -sf /usr/bin/python2 /usr/bin/python
           env python --version
           whereis python
