@@ -42,9 +42,10 @@ jobs:
       - name: Build
         shell: bash
         run: |
-          sudo rm -f /usr/bin/python
+          # sudo rm -f /usr/bin/python
           # sudo apt install -yq python2 :: Already installed
-          sudo ln -sf /usr/bin/python2 /usr/bin/python
+          # sudo ln -sf /usr/bin/python2 /usr/bin/python
+          # use python3
           cd $GITHUB_WORKSPACE/twrp
           source build/envsetup.sh
           lunch omni_octopus_ibt-eng
