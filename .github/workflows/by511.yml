@@ -42,10 +42,9 @@ jobs:
       - name: Build
         shell: bash
         run: |
-          sudo rm -f /usr/bin/python
+          sudo rm -f /usr/bin/python /usr/bin/python3.6 /usr/bin/python3.6m /usr/local/bin/python
           # sudo apt install -yq python-minimal :: Already installed
           sudo ln -sf /usr/bin/python2.7 /usr/bin/python
-          # use python3
           cd $GITHUB_WORKSPACE/twrp
           source build/envsetup.sh
           lunch omni_octopus_ibt-eng
