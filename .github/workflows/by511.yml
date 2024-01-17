@@ -29,6 +29,12 @@ jobs:
           # cp /usr/lib/jvm/java-8-openjdk-amd64/lib/tools.jar /usr/lib/
           git config --global user.email "116288337+xunmod@users.noreply.github.com"
           git config --global user.name "xunmod@bot"
+          sudo rm -f /usr/bin/python
+          sudo apt install -yq python2
+          sudo ln -sf /usr/bin/python2 /usr/bin/python
+          env python --version
+          whereis python
+          false
       - name: Get source
         run: |
           mkdir $GITHUB_WORKSPACE/twrp
