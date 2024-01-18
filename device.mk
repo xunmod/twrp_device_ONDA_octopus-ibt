@@ -1,4 +1,4 @@
-LOCAL_PATH := device/ONDA/octopus-ibt
+LOCAL_PATH := $(call my-dir)
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/root/disp.ko:root/disp.ko \
@@ -9,5 +9,3 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/root/ueventd.sun8i.rc:root/ueventd.sun8i.rc
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-
-PRODUCT_NAME := octopus-ibt

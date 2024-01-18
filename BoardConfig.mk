@@ -6,7 +6,7 @@ TARGET_ARCH := arm
 TARGET_CPU_ABI := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := cortex-a7
-ARCH_ARM_HAVE_NEON := true 
+ARCH_ARM_HAVE_NEON := true
 
 BOARD_VENDOR := allwinner
 TARGET_OTA_ASSERT_DEVICE := octopus-ibt
