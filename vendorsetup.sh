@@ -1,2 +1,2 @@
-add_lunch_combo omni_octopus_ibt-eng
-add_lunch_combo omni_octopus_ibt-userdebug
+add_lunch_combo omni_octopus-ibt-eng
+add_lunch_combo omni_octopus-ibt-userdebug
