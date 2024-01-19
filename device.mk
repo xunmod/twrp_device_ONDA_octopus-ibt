@@ -1,4 +1,4 @@
-LOCAL_PATH := $(call my-dir)
+LOCAL_PATH := device/ONDA/octopus-ibt
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/root/disp.ko:root/disp.ko \

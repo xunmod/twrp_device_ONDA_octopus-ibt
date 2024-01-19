@@ -11,6 +11,7 @@ jobs:
     env:
       USE_CCACHE: "1"
       CCACHE_EXEC: "/usr/bin/ccache"
+      LC_ALL: "C"
     steps:
       - uses: actions/setup-java@v3
         with:
@@ -47,7 +48,7 @@ jobs:
           sudo ln -sf /usr/bin/python2.7 /usr/bin/python
           cd $GITHUB_WORKSPACE/twrp
           source build/envsetup.sh
-          lunch omni_octopus_ibt-eng
+          lunch omni_octopus_ibt-eng || true
           mka -j$(nproc --all) recoveryimage
       - name: Package image
         run: |
@@ -57,3 +58,8 @@ jobs:
         with:
           name: TWRP Image
           path: 'twrp-*.img'
+      - name: Debug
+        if: ${{ failure() }}
+        uses: lhotari/action-upterm@v1
+        with:
+          limit-access-to-actor: false

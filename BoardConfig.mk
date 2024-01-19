@@ -14,7 +14,6 @@ TARGET_BOARD_PLATFORM := octopus
 TARGET_BOOTLOADER_BOARD_NAME := exdroid
 TARGET_NO_BOOTLOADER := true
 
-BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/kernel
 BOARD_KERNEL_CMDLINE := console=ttyS0,115200 androidboot.hardware=sun8i vmalloc=384M ion_reserve=384M loglevel=4
 BOARD_KERNEL_BASE := 0x40000000
@@ -24,7 +23,7 @@ BOARD_MKBOOTIMG_ARGS := \
 	--pagesize 2048 \
 	--kernel_offset 0x00008000 \
 	--ramdisk_offset 0x01000000 \
-	--tags_offset 0x0000 0100
+	--tags_offset 0x00000100
 
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_HAS_LARGE_FILESYSTEM := true
