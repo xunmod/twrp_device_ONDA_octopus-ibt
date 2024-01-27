@@ -7,3 +7,4 @@ on init
     insmod /sunxi_tr.ko
     insmod /disp.ko
 
+    exec /sbin/busybox sh /sbin/init_partition.sh
