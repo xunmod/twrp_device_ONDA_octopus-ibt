@@ -1,2 +1,0 @@
-# Allow insmod in init.recovery.sun8i.rc
-allow init self:capability { sys_module };
