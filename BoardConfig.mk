@@ -66,4 +66,4 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_stora
 # Selinux
 TWHAVE_SELINUX := true
 BOARD_SEPOLICY_DIRS := device/ONDA/octopus-ibt/sepolicy
-BOARD_SEPOLICY_UNION := recovery.te
+BOARD_SEPOLICY_UNION := module.te

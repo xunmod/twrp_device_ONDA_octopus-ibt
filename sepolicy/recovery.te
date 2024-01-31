@@ -1,2 +1,0 @@
-# Allow insmod
-allow recovery self:capability sys_module;
