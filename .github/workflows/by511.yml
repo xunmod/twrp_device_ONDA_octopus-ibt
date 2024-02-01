@@ -54,15 +54,14 @@ jobs:
         run: |
           export version=$(cat twrp/bootable/recovery/variables.h | grep "define TW_MAIN_VERSION_STR" | cut -d '"' -f2)
           cp twrp/out/target/product/octopus-ibt/recovery.img twrp-${version}_0-octopus-ibt.img
-          cp twrp/out/target/product/octopus-ibt/etc/sepolicy_intermediates/policy.conf policy.conf || true
       - uses: actions/upload-artifact@v3
         with:
           name: TWRP Image
           path: 'twrp-*.img'
-      - uses: actions/upload-artifact@v3
+      - name: Cache ccache
+        uses: actions/cache@v3
         with:
-          name: Policy
-          path: 'policy.conf'
+          path: ~/.cache/ccache
       - name: Debug
         if: ${{ failure() }}
         uses: lhotari/action-upterm@v1
