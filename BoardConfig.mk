@@ -66,4 +66,6 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_stora
 # SELinux
 TWHAVE_SELINUX := true
 BOARD_SEPOLICY_DIRS += device/ONDA/octopus-ibt/sepolicy
-BOARD_SEPOLICY_UNION += init.te
+BOARD_SEPOLICY_UNION += \
+    init_module.te \
+    file_contexts

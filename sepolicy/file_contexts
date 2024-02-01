@@ -1,0 +1,1 @@
+/sbin/init_module.sh u:object_r:module_helper:s0

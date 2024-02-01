@@ -1,0 +1,9 @@
+type init_module, domain;
+type init_module_exec, exec_type, file_type;
+
+recovery_only(`
+    allow init_module self:capability { sys_module };
+    allow init_module shell_exec:file rx_file_perms;
+')
+
+init_daemon_domain(init_module)
