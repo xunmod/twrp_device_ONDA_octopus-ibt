@@ -63,7 +63,7 @@ TW_DEFAULT_LANGUAGE := zh-CN
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun/file"
 
-# Selinux
+# SELinux
 TWHAVE_SELINUX := true
-BOARD_SEPOLICY_DIRS := device/ONDA/octopus-ibt/sepolicy
-BOARD_SEPOLICY_UNION := module.te
+BOARD_SEPOLICY_DIRS += device/ONDA/octopus-ibt/sepolicy
+BOARD_SEPOLICY_UNION += init.te
