@@ -3,6 +3,11 @@ on:
   push:
     branches: [ 'twrp-4.4' ]
   workflow_dispatch:
+    ssh:
+      description: 'open ssh or not'
+      required: true
+      type: boolean
+      default: false
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -65,7 +70,7 @@ jobs:
           name: TWRP Image
           path: 'twrp-*.img'
       - name: Debug
-        if: ${{ failure() }}
+        if: ${{ failure() || inputs.ssh }}
         uses: lhotari/action-upterm@v1
         with:
           limit-access-to-actor: false
