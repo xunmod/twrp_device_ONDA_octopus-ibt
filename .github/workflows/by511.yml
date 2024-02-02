@@ -13,10 +13,15 @@ jobs:
       CCACHE_EXEC: "/usr/bin/ccache"
       LC_ALL: "C"
     steps:
-      - uses: actions/setup-java@v3
+      - uses: actions/setup-java@v4
         with:
-          distribution: 'zulu' # See 'Supported distributions' for available options
+          distribution: 'zulu'
           java-version: '8'
+      - name: Cache ccache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ccache
+          key: ccache
       - name: Configure
         run: |
           curl https://storage.googleapis.com/git-repo-downloads/repo | sudo tee /usr/bin/repo > /dev/null
@@ -47,6 +52,7 @@ jobs:
           # sudo apt install -yq python-minimal :: Already installed
           sudo ln -sf /usr/bin/python2.7 /usr/bin/python
           cd $GITHUB_WORKSPACE/twrp
+          patch -p1 < device/ONDA/octopus-ibt/twrp_gdb.patch
           source build/envsetup.sh
           lunch omni_octopus_ibt-eng || true
           mka -j$(nproc --all) recoveryimage
@@ -58,10 +64,6 @@ jobs:
         with:
           name: TWRP Image
           path: 'twrp-*.img'
-      - name: Cache ccache
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/ccache
       - name: Debug
         if: ${{ failure() }}
         uses: lhotari/action-upterm@v1
