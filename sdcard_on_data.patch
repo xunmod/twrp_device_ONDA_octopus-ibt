@@ -1,0 +1,39 @@
+diff --git a/BoardConfig.mk b/BoardConfig.mk
+index 6d718d9..be5e6e2 100644
+--- a/BoardConfig.mk
++++ b/BoardConfig.mk
+@@ -35,7 +35,7 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432 # 32M
+ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+ BOARD_CACHEIMAGE_PARTITION_SIZE := 805306368 # 768M
+ 
+-RECOVERY_SDCARD_ON_DATA := false
++RECOVERY_SDCARD_ON_DATA := true
+ TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery/root/etc/twrp.fstab
+ 
+ TW_SCREEN_BLANK_ON_BOOT := true
+@@ -49,11 +49,8 @@ TARGET_SCREEN_WIDTH := 1280
+ TARGET_SCREEN_HEIGHT := 720
+ TW_SCREEN_BLANK_ON_BOOT := true
+ BOARD_SUPPRESS_SECURE_ERASE := true
+-TW_INTERNAL_STORAGE_PATH := "/sdcard"
+-TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
+ TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+ TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+-TW_DEFAULT_EXTERNAL_STORAGE := false
+ TW_EXCLUDE_BASH := true
+ TW_EXCLUDE_TZDATA := true
+ TW_INCLUDE_FB2PNG := true
+diff --git a/recovery/root/etc/twrp.fstab b/recovery/root/etc/twrp.fstab
+index eb8a4a4..51fab00 100644
+--- a/recovery/root/etc/twrp.fstab
++++ b/recovery/root/etc/twrp.fstab
+@@ -2,8 +2,7 @@
+ /env emmc /dev/block/by-name/env flags=display="U-Boot env";backup=1;flashimg=1
+ /boot emmc /dev/block/by-name/boot flags=backup=1;flashimg=1
+ /system ext4 /dev/block/by-name/system flags=backup=1;flashimg=1
+-/data ext4 /dev/block/by-name/data flags=backup=1;wipeingui;wipeduringfactoryreset
+-/sdcard vfat /dev/block/by-name/UDISK
++/data ext4 /dev/block/by-name/UDISK flags=backup=1;wipeingui;wipeduringfactoryreset
+ /misc emmc /dev/block/by-name/misc flags=backup=1;flashimg=1
+ /recovery emmc /dev/block/by-name/recovery flags=backup=1;flashimg=1
+ /cache ext4 /dev/block/by-name/cache flags=backup=1;wipeingui;wipeduringfactoryreset
