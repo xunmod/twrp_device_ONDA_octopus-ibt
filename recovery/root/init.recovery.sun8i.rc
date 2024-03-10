@@ -2,5 +2,5 @@ on init
     mkdir /bootloader
     mkdir /env
 
-    exec /sbin/busybox sh /sbin/init_module.sh
-    exec u:object_r:init_module:s0 -- /sbin/busybox sh /sbin/init_partition.sh
+    exec /sbin/busybox sh /sbin/init_partition.sh
+    exec u:object_r:init_module:s0 -- /sbin/busybox sh /sbin/init_module.sh
