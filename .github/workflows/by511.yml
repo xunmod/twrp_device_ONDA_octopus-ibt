@@ -61,11 +61,11 @@ jobs:
           source build/envsetup.sh
           lunch omni_octopus_ibt-eng || true
           mka -j$(nproc --all) recoveryimage
-          export version=$(cat twrp/bootable/recovery/variables.h | grep "define TW_MAIN_VERSION_STR" | cut -d '"' -f2)
-          cp twrp/out/target/product/octopus-ibt/recovery.img twrp-${version}_0-octopus-ibt_splitsdcard.img
+          export version=$(cat bootable/recovery/variables.h | grep "define TW_MAIN_VERSION_STR" | cut -d '"' -f2)
+          cp out/target/product/octopus-ibt/recovery.img ../twrp-${version}_0-octopus-ibt_splitsdcard.img
           patch -p1 < device/ONDA/octopus-ibt/sdcard_on_data.patch
           mka -j$(nproc --all) recoveryimage
-          cp twrp/out/target/product/octopus-ibt/recovery.img twrp-${version}_0-octopus-ibt_sdcardondata.img
+          cp out/target/product/octopus-ibt/recovery.img ../twrp-${version}_0-octopus-ibt_sdcardondata.img
       - uses: actions/upload-artifact@v3
         with:
           name: TWRP Image
