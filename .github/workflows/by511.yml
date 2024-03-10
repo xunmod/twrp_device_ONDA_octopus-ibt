@@ -63,7 +63,9 @@ jobs:
           mka -j$(nproc --all) recoveryimage
           export version=$(cat bootable/recovery/variables.h | grep "define TW_MAIN_VERSION_STR" | cut -d '"' -f2)
           cp out/target/product/octopus-ibt/recovery.img ../twrp-${version}_0-octopus-ibt_splitsdcard.img
-          patch -p1 < device/ONDA/octopus-ibt/sdcard_on_data.patch
+          pushd device/ONDA/octopus-ibt
+          patch -p1 < sdcard_on_data.patch
+          popd
           mka -j$(nproc --all) recoveryimage
           cp out/target/product/octopus-ibt/recovery.img ../twrp-${version}_0-octopus-ibt_sdcardondata.img
       - uses: actions/upload-artifact@v3
