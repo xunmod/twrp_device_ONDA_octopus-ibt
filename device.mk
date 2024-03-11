@@ -11,4 +11,4 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/root/sbin/init_partition.sh:root/sbin/init_partition.sh \
     $(LOCAL_PATH)/recovery/root/sbin/init_module.sh:root/sbin/init_module.sh
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)

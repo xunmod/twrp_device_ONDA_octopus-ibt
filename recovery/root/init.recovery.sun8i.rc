@@ -2,5 +2,10 @@ on init
     mkdir /bootloader
     mkdir /env
 
+on boot
     exec /sbin/busybox sh /sbin/init_partition.sh
-    exec u:object_r:init_module:s0 -- /sbin/busybox sh /sbin/init_module.sh
+
+service init_module /sbin/busybox sh /sbin/init_module.sh
+    user root
+    group root
+    oneshot
